@@ -70,11 +70,16 @@ public:
 bool isAdult() const;
 
 virtual double getFoodCost() = 0;
-
 virtual double payOff() = 0;
-
 virtual bool haveBaby() = 0;
-       
+
+int getAge() {return m_age;} const
+int getNumBabies() {return m_numBabies;} const
+double getAnimalCost() {return m_animalCost;} const
+double getBaseFoodCost() {return m_baseFoodCost;} const
+double getPayOff() {return m_payOff;} const
+
+void setAge(int age) {m_age = age;} 
 };
 
 
