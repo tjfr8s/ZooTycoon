@@ -19,7 +19,7 @@ double Penguin::getFoodCost()
 
 double Penguin::payOff()
 {
-    double payOff = 0.10 * m_animalCost; 
+    double payOff = m_payOff * m_animalCost; 
     return payOff; 
 }
 
