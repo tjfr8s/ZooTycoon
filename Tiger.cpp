@@ -19,7 +19,7 @@ double Tiger::getFoodCost()
 
 double Tiger::payOff()
 {
-    double payOff = 0.20 * m_animalCost; 
+    double payOff = m_payOff * m_animalCost; 
     return payOff; 
 }
 
