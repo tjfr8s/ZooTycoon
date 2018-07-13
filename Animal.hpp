@@ -68,7 +68,14 @@ public:
  *  - returns fals otherwise
 *******************************************************************************/
 bool isAdult() const;
+
+virtual double getFoodCost() = 0;
+
+virtual double payOff() = 0;
+
+virtual bool haveBaby() = 0;
        
 };
+
 
 #endif
