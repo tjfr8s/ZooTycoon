@@ -20,3 +20,8 @@ Animal::Animal(int age,
       m_payOff(payOff)
 {
 }    
+
+
+Animal::~Animal()
+{
+}

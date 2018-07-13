@@ -26,6 +26,8 @@ public:
           double payOff = 0);
     
 
+   virtual ~Animal();
+
        
 };
 
