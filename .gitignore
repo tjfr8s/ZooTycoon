@@ -2,6 +2,9 @@
 .*.swp
 
 AnimalTest
+TigerTest
+PenguinTest
+TurtleTest
 
 # Prerequisites
 *.d
