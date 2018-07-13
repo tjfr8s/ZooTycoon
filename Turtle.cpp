@@ -1,6 +1,6 @@
-#include "Tiger.hpp"
+#include "Turtle.hpp"
 
-Tiger::Tiger(int age,
+Turtle::Turtle(int age,
              int numBabies,
              double animalCost,
              double baseFoodCost,
@@ -8,16 +8,16 @@ Tiger::Tiger(int age,
     : Animal(age, numBabies, animalCost, baseFoodCost, payOff)
 {}
 
-Tiger::~Tiger()
+Turtle::~Turtle()
 {}
 
-double Tiger::getFoodCost()
+double Turtle::getFoodCost()
 {
-    double foodCost = 5 * m_baseFoodCost;
+    double foodCost = .5 * m_baseFoodCost;
     return foodCost;
 }
 
-double Tiger::payOff()
+double Turtle::payOff()
 {
     double payOff = m_payOff * m_animalCost; 
     return payOff; 

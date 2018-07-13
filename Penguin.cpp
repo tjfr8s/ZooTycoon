@@ -1,6 +1,6 @@
-#include "Tiger.hpp"
+#include "Penguin.hpp"
 
-Tiger::Tiger(int age,
+Penguin::Penguin(int age,
              int numBabies,
              double animalCost,
              double baseFoodCost,
@@ -8,16 +8,16 @@ Tiger::Tiger(int age,
     : Animal(age, numBabies, animalCost, baseFoodCost, payOff)
 {}
 
-Tiger::~Tiger()
+Penguin::~Penguin()
 {}
 
-double Tiger::getFoodCost()
+double Penguin::getFoodCost()
 {
-    double foodCost = 5 * m_baseFoodCost;
+    double foodCost = m_baseFoodCost;
     return foodCost;
 }
 
-double Tiger::payOff()
+double Penguin::payOff()
 {
     double payOff = m_payOff * m_animalCost; 
     return payOff; 
