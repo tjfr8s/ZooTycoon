@@ -56,6 +56,18 @@ public:
 *******************************************************************************/
    void ageOneDay();
 
+
+/*******************************************************************************
+ * Description: Returns true if Animal is 3 years or older.
+ *
+ * Preconditions:
+ *  - object of class derived from Animal
+ *
+ * Postconditions:
+ *  - returns true if m_age >= 3
+ *  - returns fals otherwise
+*******************************************************************************/
+bool isAdult() const;
        
 };
 
