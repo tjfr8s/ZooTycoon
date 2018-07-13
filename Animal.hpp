@@ -71,7 +71,7 @@ bool isAdult() const;
 
 virtual double getFoodCost() = 0;
 virtual double payOff() = 0;
-virtual bool haveBaby() = 0;
+//virtual bool haveBaby() = 0;
 
 int getAge() {return m_age;} const
 int getNumBabies() {return m_numBabies;} const
