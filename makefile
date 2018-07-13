@@ -23,6 +23,9 @@ AnimalTest: Animal.o AnimalTest.o
 TigerTest: Animal.o Tiger.o TigerTest.o
 	$(CXX) $^ -o TigerTest
 
+PenguinTest: Animal.o Penguin.o PenguinTest.o
+	$(CXX) $^ -o PenguinTest
+
 
 $(OBJS): $(SRCS) $(INCS)
 	$(CXX) $(CXXFLAGS) -c $(@:.o=.$(SRCEXT))
@@ -32,6 +35,9 @@ AnimalTest.o: ./test/AnimalTest.cpp
 
 TigerTest.o: ./test/TigerTest.cpp
 	$(CXX) $(CXXFLAGS) -c ./test/TigerTest.cpp
+
+PenguinTest.o: ./test/PenguinTest.cpp
+	$(CXX) $(CXXFLAGS) -c ./test/PenguinTest.cpp
 
 
 .PHONY: clean
