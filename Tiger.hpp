@@ -12,6 +12,7 @@
 #ifndef TIGER_HPP
 #define TIGER_HPP
 #include "Animal.hpp"
+#include <iostream>
 
 class Tiger : public Animal
 {
@@ -25,7 +26,7 @@ public:
    virtual ~Tiger();
    virtual double getFoodCost();
    virtual double payOff();
-   
+
 };
 
 

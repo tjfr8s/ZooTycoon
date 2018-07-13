@@ -22,3 +22,4 @@ double Tiger::payOff()
     double payOff = 0.20 * m_animalCost; 
     return payOff; 
 }
+
