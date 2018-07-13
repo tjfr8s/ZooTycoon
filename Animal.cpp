@@ -8,6 +8,21 @@
 *******************************************************************************/
 #include "Animal.hpp"
 
+/*******************************************************************************
+ * Description: Constructor that initializes member variables for Animal objects
+ *
+ * Preconditions:
+ *  - Parameters:
+ *      int age
+ *      int numBabies
+ *      double animalCost
+ *      double baseFoodCost
+ *      double payOff
+ *
+ * Postconditions:
+ *  - Initilizes data members to argument values. Default values used when 
+ *  arguments are omitted.
+*******************************************************************************/
 Animal::Animal(int age, 
                int numBabies, 
                double animalCost, 
@@ -25,3 +40,66 @@ Animal::Animal(int age,
 Animal::~Animal()
 {
 }
+
+
+/*******************************************************************************
+ * Description: Increment the age of the animal by 1.
+ *
+ * Preconditions:
+ *  - object of class derrived from Animal
+ *
+ * Postconditions:
+ *  - m_age incremented by 1
+*******************************************************************************/
+void Animal::ageOneDay()
+{
+    m_age++;
+    return;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

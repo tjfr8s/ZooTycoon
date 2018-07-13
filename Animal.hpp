@@ -19,6 +19,22 @@ protected:
     const double m_payOff;
 
 public:
+/*******************************************************************************
+ * Description: Constructor that initializes member variables for Animal objects
+ *
+ * Preconditions:
+ *  - Object of class derived from Animal
+ *  - Parameters:
+ *      int age
+ *      int numBabies
+ *      double animalCost
+ *      double baseFoodCost
+ *      double payOff
+ *
+ * Postconditions:
+ *  - Initilizes data members to argument values. Default values used when 
+ *  arguments are omitted.
+*******************************************************************************/
    Animal(int age = 1, 
           int numBabies = 0, 
           double animalCost = 0, 
@@ -27,6 +43,18 @@ public:
     
 
    virtual ~Animal();
+
+
+/*******************************************************************************
+ * Description: Increment the age of the animal by 1.
+ *
+ * Preconditions:
+ *  - object of class derrived from Animal
+ *
+ * Postconditions:
+ *  - m_age incremented by 1
+*******************************************************************************/
+   void ageOneDay();
 
        
 };
