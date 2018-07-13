@@ -20,12 +20,18 @@ ZooTycoon: $(OBJS)
 AnimalTest: Animal.o AnimalTest.o
 	$(CXX) $^ -o AnimalTest
 
+TigerTest: Animal.o Tiger.o TigerTest.o
+	$(CXX) $^ -o TigerTest
+
 
 $(OBJS): $(SRCS) $(INCS)
 	$(CXX) $(CXXFLAGS) -c $(@:.o=.$(SRCEXT))
 
 AnimalTest.o: ./test/AnimalTest.cpp
 	$(CXX) $(CXXFLAGS) -c ./test/AnimalTest.cpp
+
+TigerTest.o: ./test/TigerTest.cpp
+	$(CXX) $(CXXFLAGS) -c ./test/TigerTest.cpp
 
 
 .PHONY: clean
