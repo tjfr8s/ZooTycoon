@@ -58,9 +58,9 @@ public:
  *    - m_boonProfit is initialized to 0
  *******************************************************************************/
     Zoo(double m_money = 100000,
-        int m_maxTigers = 10,
-        int m_maxPenguins = 10,
-        int m_maxTurtles = 10);
+        int maxTigers = 10,
+        int maxPenguins = 10,
+        int maxTurtles = 10);
 
 /*******************************************************************************
  * Description: Destructor that frees memory for Dynamic array of Animal 
@@ -75,6 +75,7 @@ public:
  *  - The Tiger**, Penguin**, and Turtle** arrays are freed.
 *******************************************************************************/ 
     virtual ~Zoo();
+
 
     friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 

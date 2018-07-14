@@ -100,11 +100,11 @@ Zoo::~Zoo()
 std::ostream& operator<<(std::ostream& out, const Zoo& zoo)
 {
     out << "Number of Tigers: " << zoo.m_numTigers << std::endl;
-    out << "Maximum number of Tigers: " << zoo.m_numTigers << "\n" << std::endl;
+    out << "Maximum number of Tigers: " << zoo.m_maxTigers << "\n" << std::endl;
     out << "Number of Penguins: " << zoo.m_numPenguins << std::endl;
-    out << "Maximum number of Penguins: " << zoo.m_numPenguins << "\n" << std::endl;
+    out << "Maximum number of Penguins: " << zoo.m_maxPenguins << "\n" << std::endl;
     out << "Number of Turtles: " << zoo.m_numTurtles << std::endl;
-    out << "Maximum number of Turtles: " << zoo.m_numTurtles << "\n" << std::endl;
+    out << "Maximum number of Turtles: " << zoo.m_maxTurtles << "\n" << std::endl;
    
     if(zoo.m_isBankrupt)
     {
