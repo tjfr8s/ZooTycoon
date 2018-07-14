@@ -13,6 +13,7 @@
 #ifndef ZOO_HPP
 #define ZOO_HPP
 
+#include <iostream>
 #include <cstdlib>
 #include "Animal.hpp"
 #include "Tiger.hpp"
@@ -75,6 +76,10 @@ public:
 *******************************************************************************/ 
     virtual ~Zoo();
 
+    friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
+
 };
+
+std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
 #endif

@@ -42,7 +42,7 @@ Zoo::Zoo(double money,
     }
 
     // Create array of penguin pointers.
-    m_penguins = new Penguin*[m_maxTigers];
+    m_penguins = new Penguin*[m_maxPenguins];
     //
     // Initialize Penguin*s to nullptr
     for(int i = 0; i < m_maxPenguins; i++)
@@ -51,7 +51,7 @@ Zoo::Zoo(double money,
     }
 
     // Create array of turtle pointers.
-    m_turtles = new Turtle*[m_maxTigers];
+    m_turtles = new Turtle*[m_maxTurtles];
     //
     // Initialize Turtle*s to nullptr
     for(int i = 0; i < m_maxTurtles; i++)
@@ -97,3 +97,22 @@ Zoo::~Zoo()
 }
 
 
+std::ostream& operator<<(std::ostream& out, const Zoo& zoo)
+{
+    out << "Number of Tigers: " << zoo.m_numTigers << std::endl;
+    out << "Maximum number of Tigers: " << zoo.m_numTigers << "\n" << std::endl;
+    out << "Number of Penguins: " << zoo.m_numPenguins << std::endl;
+    out << "Maximum number of Penguins: " << zoo.m_numPenguins << "\n" << std::endl;
+    out << "Number of Turtles: " << zoo.m_numTurtles << std::endl;
+    out << "Maximum number of Turtles: " << zoo.m_numTurtles << "\n" << std::endl;
+   
+    if(zoo.m_isBankrupt)
+    {
+        out << "The Zoo is bankrupt!\n\n";
+    } 
+    else
+    {
+        out << "The Zoo is in the black!\n\n";
+    }
+    return out;
+}
