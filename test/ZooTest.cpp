@@ -3,5 +3,6 @@
 
 int main()
 {
+    Zoo zoo;
     return 0;
 }
