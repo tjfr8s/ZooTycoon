@@ -9,8 +9,8 @@
  * for data members.
 *******************************************************************************/
 
-#ifndef TIGER_HPP
-#define TIGER_HPP
+#ifndef TURTLE_HPP
+#define TURTLE_HPP
 #include "Animal.hpp"
 #include <iostream>
 
