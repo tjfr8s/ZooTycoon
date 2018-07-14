@@ -9,8 +9,8 @@
  * for data members.
 *******************************************************************************/
 
-#ifndef TIGER_HPP
-#define TIGER_HPP
+#ifndef PENGUIN_HPP
+#define PENGUIN_HPP
 #include "Animal.hpp"
 #include <iostream>
 
