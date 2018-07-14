@@ -5,6 +5,7 @@ AnimalTest
 TigerTest
 PenguinTest
 TurtleTest
+ZooTest
 
 # Prerequisites
 *.d
