@@ -32,5 +32,8 @@ int main()
     Zoo zoo2;
     zoo2.initZoo();
     std::cout << zoo2 << "\n**************\n";
+    zoo2.printAges();
+    zoo2.ageAnimals();
+    zoo2.printAges();
     return 0;
 }
