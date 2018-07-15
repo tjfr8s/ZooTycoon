@@ -31,6 +31,7 @@ int main()
 
     std::cout << "**************************\n\n";
 */
+    /*
     Zoo zoo2;
     zoo2.initZoo();
     std::cout << zoo2 << "\n**************\n";
@@ -70,9 +71,25 @@ int main()
     {
         zoo2.randomEvent();
         zoo2.printAges();
+        zoo2.calculateProfit();
         std::cout << zoo2 << "\n**************\n";
     }
 
+    do
+    {
+        zoo2.buyAdult();
+        zoo2.printAges();
+        std::cout << zoo2 << "\n**************\n";
+    }while(zoo2.continuePlaying());
+    */
+    Zoo zoo2;
+    zoo2.initZoo();
+    do
+    {
+        zoo2.simulateDay();
+        zoo2.printAges();
+        std::cout << "\n**************\n" << zoo2 << "\n**************\n";
+    }while(zoo2.getMoney() > 0 && zoo2.continuePlaying());
 
     return 0;
 }

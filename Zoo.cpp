@@ -369,23 +369,27 @@ void Zoo::ageAnimals()
 *******************************************************************************/ 
 void Zoo::printAges()
 {
+    std::cout << "\n";
     for(int i = 0; i < m_numTigers; i++)
     {
         std::cout << "Tiger " << i+1 << " age: " << m_tigers[i]->getAge() << 
                       std::endl;
     }
 
+    std::cout << "\n";
     for(int i = 0; i < m_numPenguins; i++)
     {
         std::cout << "Penguin " << i+1 << " age: " << m_penguins[i]->getAge() << 
                       std::endl;
     }
 
+    std::cout << "\n";
     for(int i = 0; i < m_numTurtles; i++)
     {
         std::cout << "Turtle " << i+1 << " age: " << m_turtles[i]->getAge() << 
                       std::endl;
     }
+    std::cout << "\n";
 }
 
 
@@ -417,6 +421,11 @@ void Zoo::payForFood()
     {
         m_money -= m_turtles[0]->getFoodCost() * m_numTurtles;
     }
+
+    if(m_money < 0)
+    {
+        m_isBankrupt = true;
+    }
 }
 
 
@@ -441,11 +450,11 @@ void Zoo::sickness()
                 m_numTigers--;
                 delete m_tigers[m_numTigers];
                 m_tigers[m_numTigers] = nullptr;
-                std::cout << "\n A Tiger died\n";
+                std::cout << "\nA Tiger died\n";
             }
             else
             {
-                std::cout << "\n A Tiger would have  died\n";
+                std::cout << "\nA Tiger would have  died\n";
             }
             break;
         case 2: 
@@ -454,11 +463,11 @@ void Zoo::sickness()
                 m_numPenguins--;
                 delete m_penguins[m_numPenguins];
                 m_penguins[m_numPenguins] = nullptr;
-                std::cout << "\n A Penguin died\n";
+                std::cout << "\nA Penguin died\n";
             }
             else
             {
-                std::cout << "\n A Penguin would have died\n";
+                std::cout << "\nA Penguin would have died\n";
             }
             break;
         case 3: 
@@ -467,11 +476,11 @@ void Zoo::sickness()
                 m_numTurtles--;
                 delete m_turtles[m_numTurtles];
                 m_turtles[m_numTurtles] = nullptr;
-                std::cout << "\n A Turtle died\n";
+                std::cout << "\nA Turtle died\n";
             }
             else
             {
-                std::cout << "\n A Turtle would have died\n";
+                std::cout << "\nA Turtle would have died\n";
             }            
             break;
     }
@@ -612,6 +621,112 @@ void Zoo::randomEvent()
     }    
 }
 
+
+/*******************************************************************************
+ * Description: Calculate the profit for the day.
+ *
+ * Precondition:
+ *  - call all functions that cause things to change in the zoo during a day
+ *
+ * Postconditions:
+ *  - updaates the zoo's money to reflect money made
+*******************************************************************************/
+void Zoo::calculateProfit()
+{
+    double tigerProfit = 0;
+    if(m_numTigers != 0)
+    {
+        tigerProfit = m_tigers[0]->payOff() * m_numTigers;
+    }
+
+    double penguinProfit = 0;
+    if(m_numPenguins != 0)
+    {
+        penguinProfit = m_penguins[0]->payOff() * m_numPenguins;
+    }
+
+    double turtleProfit = 0;
+    if(m_numTurtles != 0)
+    {
+        turtleProfit = m_turtles[0]->payOff() * m_numTurtles;
+    }
+
+    double totalProfit = tigerProfit + penguinProfit + 
+                         turtleProfit + m_boomProfit;
+
+    m_money += totalProfit;
+    m_boomProfit = 0;
+}
+
+
+/*******************************************************************************
+ * Description: Purchase an adult animal.
+ *
+ * Preconditions:
+ *  - Zoo object
+ * 
+ * Postconditions:
+ *  - Asks user if they would like to buy an adult. 
+ *  - Gets user choice
+ *  - updates zoo roster and money to reflect purchase
+*******************************************************************************/
+void Zoo::buyAdult()
+{
+    std::cout << "Would you like to buy an adult animal? Choose an option: \n";
+    std::cout << "1. Tiger\n2. Penguin\n3. Turtle\n4. No Thanks\n";
+    int userChoice = intInputValidation(1,4);
+
+    switch(userChoice)
+    {
+        case 1:
+            addTiger();
+            m_money -= m_tigers[0]->getAnimalCost();
+            std::cout << "You bought a Tiger!\n";
+            break;
+
+        case 2:
+            addPenguin();
+            m_money -= m_penguins[0]->getAnimalCost();
+            std::cout << "You bought a Penguin!\n";
+            break;
+
+        case 3:
+            addTurtle();
+            m_money -= m_turtles[0]->getAnimalCost();
+            std::cout << "You bought a Turtle!\n";
+            break;
+    }
+
+    if(m_money < 0)
+    {
+        m_isBankrupt = true;
+    }
+}
+
+
+bool Zoo::continuePlaying()
+{
+    std::cout << "Enter 1 to continue and 2 to quit." << std::endl;
+    int willContinue = intInputValidation(1,2);
+    if(willContinue == 1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+void Zoo::simulateDay()
+{
+    ageAnimals();
+    payForFood();
+    randomEvent();
+    calculateProfit();
+    buyAdult();
+}
 /*******************************************************************************
  * Description: Overload operator<< for Zoo class.
  *

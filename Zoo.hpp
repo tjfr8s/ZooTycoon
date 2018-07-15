@@ -265,6 +265,36 @@ public:
  *  - Causes 1 or 4 random events to happen: baby, boom, sickness, or nothing
 *******************************************************************************/
     void randomEvent();
+
+
+/*******************************************************************************
+ * Description: Calculate the profit for the day.
+ *
+ * Precondition:
+ *  - call all functions that cause things to change in the zoo during a day
+ *
+ * Postconditions:
+ *  - updaates the zoo's money to reflect money made
+*******************************************************************************/
+    void calculateProfit();
+
+
+/*******************************************************************************
+ * Description: Purchase an adult animal.
+ *
+ * Preconditions:
+ *  - Zoo object
+ * 
+ * Postconditions:
+ *  - Asks user if they would like to buy an adult. 
+ *  - Gets user choice
+ *  - updates zoo roster and money to reflect purchase
+*******************************************************************************/
+    void buyAdult();
+
+    bool continuePlaying();
+    void simulateDay();
+    double getMoney() {return m_money;}
     friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
 };

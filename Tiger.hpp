@@ -20,7 +20,7 @@ public:
    Tiger(int age = 1, 
          int numBabies = 1, 
          double animalCost = 10000, 
-         double baseFoodCost = 10, 
+         double baseFoodCost = 1000, 
          double payOff = 0.20); 
 
    virtual ~Tiger();
