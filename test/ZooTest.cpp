@@ -45,5 +45,25 @@ int main()
 
     zoo2.boom();
     std::cout << zoo2 << "\n**************\n";
+
+    zoo2.baby();
+    zoo2.printAges();
+    std::cout << zoo2 << "\n**************\n";
+
+
+    for(int i = 0; i < 3; i++)
+    {
+        zoo2.ageAnimals();
+    }
+
+    for(int i = 0; i < 3; i++)
+    {
+        zoo2.baby();
+        zoo2.printAges();
+        std::cout << zoo2 << "\n**************\n";
+    }
+    zoo2.baby();
+    zoo2.printAges();
+    std::cout << zoo2 << "\n**************\n";
     return 0;
 }
