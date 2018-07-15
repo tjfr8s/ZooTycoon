@@ -35,5 +35,7 @@ int main()
     zoo2.printAges();
     zoo2.ageAnimals();
     zoo2.printAges();
+    zoo2.payForFood();
+    std::cout << zoo2 << "\n**************\n";
     return 0;
 }
