@@ -65,5 +65,14 @@ int main()
     zoo2.baby();
     zoo2.printAges();
     std::cout << zoo2 << "\n**************\n";
+
+    for(int i = 0; i < 10; i++)
+    {
+        zoo2.randomEvent();
+        zoo2.printAges();
+        std::cout << zoo2 << "\n**************\n";
+    }
+
+
     return 0;
 }
