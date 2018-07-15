@@ -60,6 +60,19 @@ Zoo::Zoo(double money,
     }
 }
 
+
+/*******************************************************************************
+ * Description: Destructor that frees memory for Dynamic array of Animal 
+ * pointers.
+ *
+ * Precondition:
+ *  - Zoo object is destroyed
+ *
+ * Postconditions:
+ *  - each element in Tiger**, Penguin**, and Turtle** is deallocated (if it
+ *  isn't assigned nullptr.
+ *  - The Tiger**, Penguin**, and Turtle** arrays are freed.
+*******************************************************************************/ 
 Zoo::~Zoo()
 {
     // Deallocate Tiger objects in array
@@ -97,6 +110,18 @@ Zoo::~Zoo()
 }
 
 
+/*******************************************************************************
+ * Description: Overload operator<< for Zoo class.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ *  - When called on zoo object, inserts the following into the output stream
+ *      - Number of each animal
+ *      - Maximum number of each animal
+ *      - Bankruptcy status
+*******************************************************************************/ 
 std::ostream& operator<<(std::ostream& out, const Zoo& zoo)
 {
     out << "Number of Tigers: " << zoo.m_numTigers << std::endl;

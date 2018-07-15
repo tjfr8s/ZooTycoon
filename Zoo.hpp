@@ -81,6 +81,18 @@ public:
 
 };
 
+/*******************************************************************************
+ * Description: Overload operator<< for Zoo class.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ *  - When called on zoo object, inserts the following into the output stream
+ *      - Number of each animal
+ *      - Maximum number of each animal
+ *      - Bankruptcy status
+*******************************************************************************/ 
 std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
 #endif
