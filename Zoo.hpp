@@ -16,6 +16,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <iomanip>
+#include <time.h>
 #include "IntegerValidation.hpp"
 #include "Animal.hpp"
 #include "Tiger.hpp"
@@ -211,6 +212,19 @@ public:
  *  - Subtracts the cost of food for each animal from the Zoo's money.
 *******************************************************************************/
     void payForFood();
+
+
+/*******************************************************************************
+ * Description: One random animal dies of sickness.
+ *
+ * Precondition:
+ *  - Zoo object with animals.
+ *
+ * Postconditions:
+ *  - An animal type is selected at random, and if there are any animals of that
+ *  type, one dies of sickness
+*******************************************************************************/
+    void sickness();
     friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
 };

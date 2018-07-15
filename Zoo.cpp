@@ -421,6 +421,64 @@ void Zoo::payForFood()
 
 
 /*******************************************************************************
+ * Description: One random animal dies of sickness.
+ *
+ * Precondition:
+ *  - Zoo object with animals.
+ *
+ * Postconditions:
+ *  - An animal type is selected at random, and if there are any animals of that
+ *  type, one dies of sickness
+*******************************************************************************/
+void Zoo::sickness()
+{
+    int randomAnimal = rand() % 3 + 1;
+    switch(randomAnimal)
+    {
+        case 1: 
+            if(m_numTigers > 0)
+            {
+                m_numTigers--;
+                delete m_tigers[m_numTigers];
+                m_tigers[m_numTigers] = nullptr;
+                std::cout << "\n A Tiger died\n";
+            }
+            else
+            {
+                std::cout << "\n A Tiger would have  died\n";
+            }
+            break;
+        case 2: 
+            if(m_numPenguins > 0)
+            {
+                m_numPenguins--;
+                delete m_penguins[m_numPenguins];
+                m_penguins[m_numPenguins] = nullptr;
+                std::cout << "\n A Penguin died\n";
+            }
+            else
+            {
+                std::cout << "\n A Penguin would have died\n";
+            }
+            break;
+        case 3: 
+            if(m_numTurtles > 0)
+            {
+                m_numTurtles--;
+                delete m_turtles[m_numTurtles];
+                m_turtles[m_numTurtles] = nullptr;
+                std::cout << "\n A Turtle died\n";
+            }
+            else
+            {
+                std::cout << "\n A Turtle would have died\n";
+            }            
+            break;
+    }
+}
+
+
+/*******************************************************************************
  * Description: Overload operator<< for Zoo class.
  *
  * Preconditions:
