@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <iomanip>
 #include "IntegerValidation.hpp"
 #include "Animal.hpp"
 #include "Tiger.hpp"
@@ -103,7 +104,7 @@ public:
  * - Adds a new tiger to the Tiger** array
  * - Resizes the array if there isn't space for the tiger
 *******************************************************************************/
-void addTiger();
+    void addTiger();
 
 
 /*******************************************************************************
@@ -131,7 +132,7 @@ void addTiger();
  * - Adds a new penguin to the Penguin** array
  * - Resizes the array if there isn't space for the penguin
 *******************************************************************************/
-void addPenguin();
+    void addPenguin();
 
 
 /*******************************************************************************
@@ -159,7 +160,7 @@ void addPenguin();
  * - Adds a new turtle to the Turtle** array
  * - Resizes the array if there isn't space for the turtle
 *******************************************************************************/
-void addTurtle();
+    void addTurtle();
 
 
 /*******************************************************************************

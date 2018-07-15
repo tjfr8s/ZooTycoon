@@ -289,7 +289,7 @@ void Zoo::addTurtle()
  * Description: Initialize the starting state of the Zoo.
  *
  * Preconditions:
- *  - Zoo object.
+ *  - New Zoo object.
  *
  * Postconditions:
  *  - Asks user how many of each animal they would like to start with (1 or 2)
@@ -302,12 +302,30 @@ void Zoo::initZoo()
     const int MAX_START_ANML(2);
     int animalNumber(0);
 
-    std::cout << "How many Tigers would you like to start with? ";
+    std::cout << "How many Tigers would you like to start with (1 or 2)? ";
     animalNumber = intInputValidation(MIN_START_ANML, MAX_START_ANML);
     for(int i = 0; i < animalNumber; i++)
     {
-        
+        this->addTiger();
+        m_money -= m_tigers[m_numTigers - 1]->getAnimalCost(); 
     }
+
+    std::cout << "How many Penguins would you like to start with (1 or 2)? ";
+    animalNumber = intInputValidation(MIN_START_ANML, MAX_START_ANML);
+    for(int i = 0; i < animalNumber; i++)
+    {
+        this->addPenguin();
+        m_money -= m_penguins[m_numPenguins - 1]->getAnimalCost(); 
+    }
+
+    std::cout << "How many Turtles would you like to start with (1 or 2)? ";
+    animalNumber = intInputValidation(MIN_START_ANML, MAX_START_ANML);
+    for(int i = 0; i < animalNumber; i++)
+    {
+        this->addTurtle();
+        m_money -= m_turtles[m_numTurtles - 1]->getAnimalCost(); 
+    }
+
 }
 
 
@@ -326,12 +344,17 @@ void Zoo::initZoo()
 std::ostream& operator<<(std::ostream& out, const Zoo& zoo)
 {
     out << "Number of Tigers: " << zoo.m_numTigers << std::endl;
-    out << "Maximum number of Tigers: " << zoo.m_maxTigers << "\n" << std::endl;
+    out << "Maximum number of Tigers: " << zoo.m_maxTigers << "\n" << 
+            std::endl;
     out << "Number of Penguins: " << zoo.m_numPenguins << std::endl;
-    out << "Maximum number of Penguins: " << zoo.m_maxPenguins << "\n" << std::endl;
+    out << "Maximum number of Penguins: " << zoo.m_maxPenguins << "\n" << 
+            std::endl;
     out << "Number of Turtles: " << zoo.m_numTurtles << std::endl;
-    out << "Maximum number of Turtles: " << zoo.m_maxTurtles << "\n" << std::endl;
-   
+    out << "Maximum number of Turtles: " << zoo.m_maxTurtles << "\n" << 
+            std::endl;
+    out << "\nMoney: " << std::setprecision(2) << std::fixed << zoo.m_money << 
+            std::endl;
+
     if(zoo.m_isBankrupt)
     {
         out << "The Zoo is bankrupt!\n\n";
