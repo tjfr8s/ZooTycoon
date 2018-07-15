@@ -3,8 +3,10 @@
 
 int main()
 {
+    srand(time(NULL));
     Zoo zoo;
     std::cout << zoo;
+    
 /*
     // Test addTiger() and resizeTiger()
     for(int i = 0; i < 11; i++)
@@ -37,5 +39,11 @@ int main()
     zoo2.printAges();
     zoo2.payForFood();
     std::cout << zoo2 << "\n**************\n";
+    for(int i = 0; i < 6; i++)
+    {
+    
+        zoo2.sickness();
+        std::cout << zoo2 << "\n**************\n";
+    }
     return 0;
 }
