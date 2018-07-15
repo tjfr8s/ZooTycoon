@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include "IntegerValidation.hpp"
 #include "Animal.hpp"
 #include "Tiger.hpp"
 #include "Penguin.hpp"
@@ -76,6 +77,47 @@ public:
 *******************************************************************************/ 
     virtual ~Zoo();
 
+
+/*******************************************************************************
+ * Description: Doubles the size of the Tiger array.
+ *
+ * Preconditions: 
+ *  - m_tigers array of size m_maxTigers
+ *
+ * Postconditions:
+ *  - doubles the size of m_maxTigers
+ *  - creates new Tiger array of size m_maxTigers and sets m_Tigers to point to
+ *  it.
+ *  - set pointers 
+*******************************************************************************/ 
+    void resizeTigers();
+
+
+/*******************************************************************************
+ * Description: Adds a new tiger to the tiger array.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ * - Adds a new tiger to the Tiger** array
+ * - Resizes the array if there isn't space for the tiger
+*******************************************************************************/
+void addTiger();
+
+
+/*******************************************************************************
+ * Description: Initialize the starting state of the Zoo.
+ *
+ * Preconditions:
+ *  - Zoo object.
+ *
+ * Postconditions:
+ *  - Asks user how many of each animal they would like to start with (1 or 2)
+ *  - Adds that number of each animal to the zoo
+ *  - Subtracts the cost of the animals from the bank
+*******************************************************************************/ 
+    void initZoo();
 
     friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
