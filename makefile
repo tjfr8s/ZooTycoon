@@ -29,7 +29,7 @@ PenguinTest: Animal.o Penguin.o PenguinTest.o
 TurtleTest: Animal.o Turtle.o TurtleTest.o
 	$(CXX) $^ -o TurtleTest
 
-ZooTest: Animal.o Tiger.o Penguin.o Turtle.o Zoo.o ZooTest.o
+ZooTest: Animal.o Tiger.o Penguin.o Turtle.o Zoo.o ZooTest.o IntegerValidation.o
 	$(CXX) $^ -o ZooTest
 
 
