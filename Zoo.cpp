@@ -390,6 +390,37 @@ void Zoo::printAges()
 
 
 /*******************************************************************************
+ * Description: Pay to feed the animals.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ *  - Subtracts the cost of food for each animal from the Zoo's money.
+*******************************************************************************/
+void Zoo::payForFood()
+{
+    // If there are any tigers, subtract the cost of their food.
+    if(m_numTigers > 0)
+    {
+        m_money -= m_tigers[0]->getFoodCost() * m_numTigers;
+    }
+
+    // If there are any penguins, subtract the cost of their food.
+    if(m_numPenguins > 0)
+    {
+        m_money -= m_penguins[0]->getFoodCost() * m_numPenguins;
+    }
+
+    // If there are any turtles, subtract the cost of their food.
+    if(m_numTurtles > 0)
+    {
+        m_money -= m_turtles[0]->getFoodCost() * m_numTurtles;
+    }
+}
+
+
+/*******************************************************************************
  * Description: Overload operator<< for Zoo class.
  *
  * Preconditions:

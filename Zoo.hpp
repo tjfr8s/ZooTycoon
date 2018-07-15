@@ -200,6 +200,17 @@ public:
 *******************************************************************************/ 
     void printAges();
 
+
+/*******************************************************************************
+ * Description: Pay to feed the animals.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ *  - Subtracts the cost of food for each animal from the Zoo's money.
+*******************************************************************************/
+    void payForFood();
     friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
 };
