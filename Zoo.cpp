@@ -153,16 +153,16 @@ void Zoo::resizeTigers()
  * - Adds a new tiger to the Tiger** array
  * - Resizes the array if there isn't space for the tiger
 *******************************************************************************/
-void Zoo::addTiger()
+void Zoo::addTiger(int age)
 {
     if(m_numTigers < m_maxTigers)
     {
-        m_tigers[m_numTigers] = new Tiger();
+        m_tigers[m_numTigers] = new Tiger(age);
     }   
     else
     {
         resizeTigers();
-        m_tigers[m_numTigers] = new Tiger();
+        m_tigers[m_numTigers] = new Tiger(age);
     }
     m_numTigers++;
 }
@@ -211,16 +211,16 @@ void Zoo::resizePenguins()
  * - Adds a new penguin to the Penguin** array
  * - Resizes the array if there isn't space for the penguin
 *******************************************************************************/
-void Zoo::addPenguin()
+void Zoo::addPenguin(int age)
 {
     if(m_numPenguins < m_maxPenguins)
     {
-        m_penguins[m_numPenguins] = new Penguin();
+        m_penguins[m_numPenguins] = new Penguin(age);
     }   
     else
     {
         resizePenguins();
-        m_penguins[m_numPenguins] = new Penguin();
+        m_penguins[m_numPenguins] = new Penguin(age);
     }
     m_numPenguins++;
 }
@@ -270,16 +270,16 @@ void Zoo::resizeTurtles()
  * - Adds a new turtle to the Turtle** array
  * - Resizes the array if there isn't space for the turtle
 *******************************************************************************/
-void Zoo::addTurtle()
+void Zoo::addTurtle(int age)
 {
     if(m_numTurtles < m_maxTurtles)
     {
-        m_turtles[m_numTurtles] = new Turtle();
+        m_turtles[m_numTurtles] = new Turtle(age);
     }   
     else
     {
         resizeTurtles();
-        m_turtles[m_numTurtles] = new Turtle();
+        m_turtles[m_numTurtles] = new Turtle(age);
     }
     m_numTurtles++;
 }
@@ -494,6 +494,91 @@ void Zoo::boom()
     m_boomProfit = m_numTigers * boomFactor;
 }
 
+
+
+/*******************************************************************************
+ * Description: A random animal has a baby.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ *  - A random animal type is chosen
+ *  - If there is an adult animal of this type it has a baby with age 0
+ *  - If there isn't it moves to the next type
+ *  - If no adults are present, no babies are had
+*******************************************************************************/ 
+void Zoo::baby()
+{
+    int babyType = rand() % 3 + 1;
+    int numChecked(0);
+    bool hadBaby = false;
+    bool hasAdult = false;
+
+    while(numChecked < 3 && !hadBaby)
+    {
+        switch(babyType)
+        {
+            case 1:
+                // Check for adult tiger 
+                for(int i = 0; i < m_numTigers; i++) 
+                {
+                    if(m_tigers[i]->getAge() >= 3)
+                    {
+                        hasAdult = true;
+                    }
+                }
+                // Have baby
+                if(hasAdult)
+                {
+                    hadBaby = true;  
+                    addTiger(0);
+                }
+                numChecked++;
+                break;
+                
+            case 2:
+                // Check for adult penguin 
+                for(int i = 0; i < m_numPenguins; i++) 
+                {
+                    if(m_penguins[i]->getAge() >= 3)
+                    {
+                        hasAdult = true;
+                    }
+                }
+                // Have baby
+                if(hasAdult)
+                {
+                    hadBaby = true;  
+                    addPenguin(0);
+                }
+                numChecked++;
+                break;
+
+            case 3:
+                // Check for adult turtle 
+                for(int i = 0; i < m_numTurtles; i++) 
+                {
+                    if(m_turtles[i]->getAge() >= 3)
+                    {
+                        hasAdult = true;
+                    }
+                }
+                // Have baby
+                if(hasAdult)
+                {
+                    hadBaby = true;  
+                    addTurtle(0);
+                }
+                numChecked++;
+                break;
+        }
+    }
+    if(!hadBaby)
+    {
+        std::cout << "\nThere were no adult animals. \n" << std::endl;
+    }
+}
 
 /*******************************************************************************
  * Description: Overload operator<< for Zoo class.

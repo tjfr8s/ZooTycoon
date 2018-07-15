@@ -105,7 +105,7 @@ public:
  * - Adds a new tiger to the Tiger** array
  * - Resizes the array if there isn't space for the tiger
 *******************************************************************************/
-    void addTiger();
+    void addTiger(int age = 1);
 
 
 /*******************************************************************************
@@ -133,7 +133,7 @@ public:
  * - Adds a new penguin to the Penguin** array
  * - Resizes the array if there isn't space for the penguin
 *******************************************************************************/
-    void addPenguin();
+    void addPenguin(int age = 1);
 
 
 /*******************************************************************************
@@ -161,7 +161,7 @@ public:
  * - Adds a new turtle to the Turtle** array
  * - Resizes the array if there isn't space for the turtle
 *******************************************************************************/
-    void addTurtle();
+    void addTurtle(int age = 1);
 
 
 /*******************************************************************************
@@ -238,6 +238,21 @@ public:
  *  between 250 and 500
 *******************************************************************************/
     void boom();
+
+
+/*******************************************************************************
+ * Description: A random animal has a baby.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ *  - A random animal type is chosen
+ *  - If there is an adult animal of this type it has a baby with age 0
+ *  - If there isn't it moves to the next type
+ *  - If no adults are present, no babies are had
+*******************************************************************************/ 
+    void baby();
     friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
 };
