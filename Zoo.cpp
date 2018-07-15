@@ -330,6 +330,66 @@ void Zoo::initZoo()
 
 
 /*******************************************************************************
+ * Description: age animals by one day.
+ *
+ * Preconditions:
+ *  - Zoo object with animals.
+ *
+ * Postconditions:
+ *  - increases the age of each animal by 1.
+*******************************************************************************/
+void Zoo::ageAnimals()
+{
+    for(int i = 0; i < m_numTigers; i++)
+    {
+        m_tigers[i]->ageOneDay();
+    }
+
+    
+    for(int i = 0; i < m_numPenguins; i++)
+    {
+        m_penguins[i]->ageOneDay();
+    }
+
+    for(int i = 0; i < m_numTurtles; i++)
+    {
+        m_turtles[i]->ageOneDay();
+    }
+}
+
+
+/*******************************************************************************
+ * Description: Print the ages of all animals in zoo.
+ *
+ * Preconditons:
+ *  - Zoo object with animals.
+ *
+ * Postconditions:
+ *  - Displays age of each animal.
+*******************************************************************************/ 
+void Zoo::printAges()
+{
+    for(int i = 0; i < m_numTigers; i++)
+    {
+        std::cout << "Tiger " << i+1 << " age: " << m_tigers[i]->getAge() << 
+                      std::endl;
+    }
+
+    for(int i = 0; i < m_numPenguins; i++)
+    {
+        std::cout << "Penguin " << i+1 << " age: " << m_penguins[i]->getAge() << 
+                      std::endl;
+    }
+
+    for(int i = 0; i < m_numTurtles; i++)
+    {
+        std::cout << "Turtle " << i+1 << " age: " << m_turtles[i]->getAge() << 
+                      std::endl;
+    }
+}
+
+
+/*******************************************************************************
  * Description: Overload operator<< for Zoo class.
  *
  * Preconditions:

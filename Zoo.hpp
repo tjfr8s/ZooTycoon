@@ -176,9 +176,36 @@ public:
 *******************************************************************************/ 
     void initZoo();
 
+
+/*******************************************************************************
+ * Description: age animals by one day.
+ *
+ * Preconditions:
+ *  - Zoo object with animals.
+ *
+ * Postconditions:
+ *  - increases the age of each animal by 1.
+*******************************************************************************/
+    void ageAnimals();
+
+
+/*******************************************************************************
+ * Description: Print the ages of all animals in zoo.
+ *
+ * Preconditons:
+ *  - Zoo object with animals.
+ *
+ * Postconditions:
+ *  - Displays age of each animal.
+*******************************************************************************/ 
+    void printAges();
+
     friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
 };
+
+
+
 
 /*******************************************************************************
  * Description: Overload operator<< for Zoo class.
