@@ -5,6 +5,7 @@ int main()
 {
     Zoo zoo;
     std::cout << zoo;
+/*
     // Test addTiger() and resizeTiger()
     for(int i = 0; i < 11; i++)
     {
@@ -25,5 +26,11 @@ int main()
         zoo.addTurtle();
         std::cout << zoo << "\n******************\n";
     }
+
+    std::cout << "**************************\n\n";
+*/
+    Zoo zoo2;
+    zoo2.initZoo();
+    std::cout << zoo2 << "\n**************\n";
     return 0;
 }
