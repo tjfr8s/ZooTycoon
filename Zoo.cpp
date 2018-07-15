@@ -168,6 +168,122 @@ void Zoo::addTiger()
 }
 
 
+/*******************************************************************************
+ * Description: Doubles the size of the Penguin array.
+ *
+ * Preconditions: 
+ *  - m_penguins array of size m_maxPenguins
+ *
+ * Postconditions:
+ *  - doubles the size of m_maxPenguins
+ *  - creates new Penguin array of size m_maxPenguins and sets m_Penguins to point to
+ *  it.
+ *  - set pointers 
+*******************************************************************************/ 
+void Zoo::resizePenguins()
+{
+    // Create new Penguin** array twice the size of m_penguins
+    int newMax = 2 * m_maxPenguins;
+    Penguin** newPenguins = new Penguin*[newMax];
+
+    // Move each element of m_penguins to the new array
+    for(int i = 0; i < m_maxPenguins; i++)
+    {
+        newPenguins[i] = m_penguins[i];
+        m_penguins[i] = nullptr;
+    }
+
+    // Point m_penguins to the new array and update m_maxPenguins
+    m_maxPenguins = newMax;
+    m_penguins = newPenguins;
+    newPenguins = nullptr;
+    std::cout << "Resized Penguins" << std::endl;
+}
+
+
+/*******************************************************************************
+ * Description: Adds a new penguin to the penguin array.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ * - Adds a new penguin to the Penguin** array
+ * - Resizes the array if there isn't space for the penguin
+*******************************************************************************/
+void Zoo::addPenguin()
+{
+    if(m_numPenguins < m_maxPenguins)
+    {
+        m_penguins[m_numPenguins] = new Penguin();
+    }   
+    else
+    {
+        resizePenguins();
+        m_penguins[m_numPenguins] = new Penguin();
+    }
+    m_numPenguins++;
+}
+
+
+
+/*******************************************************************************
+ * Description: Doubles the size of the Turtle array.
+ *
+ * Preconditions: 
+ *  - m_turtles array of size m_maxTurtles
+ *
+ * Postconditions:
+ *  - doubles the size of m_maxTurtles
+ *  - creates new Turtle array of size m_maxTurtles and sets m_Turtles to point 
+ *  to it.
+ *  - set pointers 
+*******************************************************************************/ 
+void Zoo::resizeTurtles()
+{
+    // Create new Turtle** array twice the size of m_turtles
+    int newMax = 2 * m_maxTurtles;
+    Turtle** newTurtles = new Turtle*[newMax];
+
+    // Move each element of m_turtles to the new array
+    for(int i = 0; i < m_maxTurtles; i++)
+    {
+        newTurtles[i] = m_turtles[i];
+        m_turtles[i] = nullptr;
+    }
+
+    // Point m_turtles to the new array and update m_maxTurtles
+    m_maxTurtles = newMax;
+    m_turtles = newTurtles;
+    newTurtles = nullptr;
+    std::cout << "Resized Turtles" << std::endl;
+}
+
+
+/*******************************************************************************
+ * Description: Adds a new turtle to the turtle array.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ * - Adds a new turtle to the Turtle** array
+ * - Resizes the array if there isn't space for the turtle
+*******************************************************************************/
+void Zoo::addTurtle()
+{
+    if(m_numTurtles < m_maxTurtles)
+    {
+        m_turtles[m_numTurtles] = new Turtle();
+    }   
+    else
+    {
+        resizeTurtles();
+        m_turtles[m_numTurtles] = new Turtle();
+    }
+    m_numTurtles++;
+}
+
 
 /*******************************************************************************
  * Description: Initialize the starting state of the Zoo.

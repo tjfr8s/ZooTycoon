@@ -107,6 +107,62 @@ void addTiger();
 
 
 /*******************************************************************************
+ * Description: Doubles the size of the Penguin array.
+ *
+ * Preconditions: 
+ *  - m_penguins array of size m_maxPenguins
+ *
+ * Postconditions:
+ *  - doubles the size of m_maxPenguins
+ *  - creates new Penguin array of size m_maxPenguins and sets m_Penguins to 
+ *  point to it.
+ *  - set pointers 
+*******************************************************************************/ 
+    void resizePenguins();
+
+
+/*******************************************************************************
+ * Description: Adds a new penguin to the penguin array.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ * - Adds a new penguin to the Penguin** array
+ * - Resizes the array if there isn't space for the penguin
+*******************************************************************************/
+void addPenguin();
+
+
+/*******************************************************************************
+ * Description: Doubles the size of the Turtle array.
+ *
+ * Preconditions: 
+ *  - m_turtles array of size m_maxTurtles
+ *
+ * Postconditions:
+ *  - doubles the size of m_maxTurtles
+ *  - creates new Turtle array of size m_maxTurtles and sets m_Turtles to 
+ *  point to it.
+ *  - set pointers 
+*******************************************************************************/ 
+    void resizeTurtles();
+
+
+/*******************************************************************************
+ * Description: Adds a new turtle to the turtle array.
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions:
+ * - Adds a new turtle to the Turtle** array
+ * - Resizes the array if there isn't space for the turtle
+*******************************************************************************/
+void addTurtle();
+
+
+/*******************************************************************************
  * Description: Initialize the starting state of the Zoo.
  *
  * Preconditions:
