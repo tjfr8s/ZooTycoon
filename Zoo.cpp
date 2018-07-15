@@ -479,6 +479,23 @@ void Zoo::sickness()
 
 
 /*******************************************************************************
+ * Description: Generates a random boom profit between 250 and 500 per tiger
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions: 
+ *  - sets m_boomProfit to a the number of tigers times a random number
+ *  between 250 and 500
+*******************************************************************************/
+void Zoo::boom()
+{
+    int boomFactor = rand() % 51 + 250;
+    m_boomProfit = m_numTigers * boomFactor;
+}
+
+
+/*******************************************************************************
  * Description: Overload operator<< for Zoo class.
  *
  * Preconditions:
@@ -503,6 +520,8 @@ std::ostream& operator<<(std::ostream& out, const Zoo& zoo)
             std::endl;
     out << "\nMoney: " << std::setprecision(2) << std::fixed << zoo.m_money << 
             std::endl;
+    out << "\nBoom: " << std::setprecision(2) << std::fixed << 
+            zoo.m_boomProfit << std::endl;
 
     if(zoo.m_isBankrupt)
     {

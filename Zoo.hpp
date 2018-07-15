@@ -225,6 +225,19 @@ public:
  *  type, one dies of sickness
 *******************************************************************************/
     void sickness();
+
+
+/*******************************************************************************
+ * Description: Generates a random boom profit between 250 and 500 per tiger
+ *
+ * Preconditions:
+ *  - Zoo object
+ *
+ * Postconditions: 
+ *  - sets m_boomProfit to a the number of tigers times a random number
+ *  between 250 and 500
+*******************************************************************************/
+    void boom();
     friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
 };
