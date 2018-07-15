@@ -580,6 +580,38 @@ void Zoo::baby()
     }
 }
 
+
+/*******************************************************************************
+ * Description: Causes 1 random event to happen at the zoo.
+ *
+ * Preconditions:
+ *  - Create Zoo object
+ * 
+ * Postconditions:
+ *  - Causes 1 or 4 random events to happen: baby, boom, sickness, or nothing
+*******************************************************************************/
+void Zoo::randomEvent()
+{
+    int randomChoice = rand() % 4 + 1;
+    switch(randomChoice)
+    {
+        case 1:
+            std::cout << "A sickness occured!" << std::endl;
+            sickness();
+            break;
+        case 2:
+            std::cout << "A boom in sales!" << std::endl;
+            boom();
+            break;
+        case 3:
+            std::cout << "A baby is born!" << std::endl;
+            baby();
+            break;
+        case 4:
+            std::cout << "Nothing special happened today." << std::endl;
+    }    
+}
+
 /*******************************************************************************
  * Description: Overload operator<< for Zoo class.
  *

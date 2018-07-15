@@ -253,6 +253,18 @@ public:
  *  - If no adults are present, no babies are had
 *******************************************************************************/ 
     void baby();
+
+
+/*******************************************************************************
+ * Description: Causes 1 random event to happen at the zoo.
+ *
+ * Preconditions:
+ *  - Create Zoo object
+ * 
+ * Postconditions:
+ *  - Causes 1 or 4 random events to happen: baby, boom, sickness, or nothing
+*******************************************************************************/
+    void randomEvent();
     friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
 };
