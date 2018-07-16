@@ -19,10 +19,12 @@
  *    - m_boonProfit is initialized to 0
  *******************************************************************************/
 Zoo::Zoo(double money,
+         int baseFoodCost,
          int maxTigers,
          int maxPenguins,
          int maxTurtles) 
     : m_money(money),
+      m_baseFoodCost(baseFoodCost),
       m_maxTigers(maxTigers),
       m_maxPenguins(maxPenguins),
       m_maxTurtles(maxTurtles),
@@ -153,16 +155,16 @@ void Zoo::resizeTigers()
  * - Adds a new tiger to the Tiger** array
  * - Resizes the array if there isn't space for the tiger
 *******************************************************************************/
-void Zoo::addTiger(int age)
+void Zoo::addTiger(int age, int baseFoodCost)
 {
     if(m_numTigers < m_maxTigers)
     {
-        m_tigers[m_numTigers] = new Tiger(age);
+        m_tigers[m_numTigers] = new Tiger(age, baseFoodCost);
     }   
     else
     {
         resizeTigers();
-        m_tigers[m_numTigers] = new Tiger(age);
+        m_tigers[m_numTigers] = new Tiger(age, baseFoodCost);
     }
     m_numTigers++;
 }
@@ -211,16 +213,16 @@ void Zoo::resizePenguins()
  * - Adds a new penguin to the Penguin** array
  * - Resizes the array if there isn't space for the penguin
 *******************************************************************************/
-void Zoo::addPenguin(int age)
+void Zoo::addPenguin(int age, int baseFoodCost)
 {
     if(m_numPenguins < m_maxPenguins)
     {
-        m_penguins[m_numPenguins] = new Penguin(age);
+        m_penguins[m_numPenguins] = new Penguin(age, baseFoodCost);
     }   
     else
     {
         resizePenguins();
-        m_penguins[m_numPenguins] = new Penguin(age);
+        m_penguins[m_numPenguins] = new Penguin(age, baseFoodCost);
     }
     m_numPenguins++;
 }
@@ -270,16 +272,16 @@ void Zoo::resizeTurtles()
  * - Adds a new turtle to the Turtle** array
  * - Resizes the array if there isn't space for the turtle
 *******************************************************************************/
-void Zoo::addTurtle(int age)
+void Zoo::addTurtle(int age, int baseFoodCost)
 {
     if(m_numTurtles < m_maxTurtles)
     {
-        m_turtles[m_numTurtles] = new Turtle(age);
+        m_turtles[m_numTurtles] = new Turtle(age, baseFoodCost);
     }   
     else
     {
         resizeTurtles();
-        m_turtles[m_numTurtles] = new Turtle(age);
+        m_turtles[m_numTurtles] = new Turtle(age, baseFoodCost);
     }
     m_numTurtles++;
 }
@@ -306,7 +308,7 @@ void Zoo::initZoo()
     animalNumber = intInputValidation(MIN_START_ANML, MAX_START_ANML);
     for(int i = 0; i < animalNumber; i++)
     {
-        this->addTiger();
+        this->addTiger(1, m_baseFoodCost);
         m_money -= m_tigers[m_numTigers - 1]->getAnimalCost(); 
     }
 
@@ -314,7 +316,7 @@ void Zoo::initZoo()
     animalNumber = intInputValidation(MIN_START_ANML, MAX_START_ANML);
     for(int i = 0; i < animalNumber; i++)
     {
-        this->addPenguin();
+        this->addPenguin(1, m_baseFoodCost);
         m_money -= m_penguins[m_numPenguins - 1]->getAnimalCost(); 
     }
 
@@ -322,7 +324,7 @@ void Zoo::initZoo()
     animalNumber = intInputValidation(MIN_START_ANML, MAX_START_ANML);
     for(int i = 0; i < animalNumber; i++)
     {
-        this->addTurtle();
+        this->addTurtle(1, m_baseFoodCost);
         m_money -= m_turtles[m_numTurtles - 1]->getAnimalCost(); 
     }
 
@@ -374,6 +376,8 @@ void Zoo::printAges()
     {
         std::cout << "Tiger " << i+1 << " age: " << m_tigers[i]->getAge() << 
                       std::endl;
+        std::cout << "Tiger " << i+1 << " bfc:" << m_tigers[i]->getFoodCost() << 
+                      std::endl;
     }
 
     std::cout << "\n";
@@ -381,12 +385,16 @@ void Zoo::printAges()
     {
         std::cout << "Penguin " << i+1 << " age: " << m_penguins[i]->getAge() << 
                       std::endl;
+        std::cout << "Penguin " << i+1 << " bfc:" << m_penguins[i]->getFoodCost() << 
+                      std::endl;
     }
 
     std::cout << "\n";
     for(int i = 0; i < m_numTurtles; i++)
     {
         std::cout << "Turtle " << i+1 << " age: " << m_turtles[i]->getAge() << 
+                      std::endl;
+        std::cout << "Turtle " << i+1 << " bfc:" << m_turtles[i]->getFoodCost() << 
                       std::endl;
     }
     std::cout << "\n";
@@ -541,7 +549,7 @@ void Zoo::baby()
                 if(hasAdult)
                 {
                     hadBaby = true;  
-                    addTiger(0);
+                    addTiger(0, m_baseFoodCost);
                 }
                 numChecked++;
                 break;
@@ -559,7 +567,7 @@ void Zoo::baby()
                 if(hasAdult)
                 {
                     hadBaby = true;  
-                    addPenguin(0);
+                    addPenguin(0, m_baseFoodCost);
                 }
                 numChecked++;
                 break;
@@ -577,7 +585,7 @@ void Zoo::baby()
                 if(hasAdult)
                 {
                     hadBaby = true;  
-                    addTurtle(0);
+                    addTurtle(0, m_baseFoodCost);
                 }
                 numChecked++;
                 break;
@@ -679,19 +687,19 @@ void Zoo::buyAdult()
     switch(userChoice)
     {
         case 1:
-            addTiger();
+            addTiger(3, m_baseFoodCost);
             m_money -= m_tigers[0]->getAnimalCost();
             std::cout << "You bought a Tiger!\n";
             break;
 
         case 2:
-            addPenguin();
+            addPenguin(3, m_baseFoodCost);
             m_money -= m_penguins[0]->getAnimalCost();
             std::cout << "You bought a Penguin!\n";
             break;
 
         case 3:
-            addTurtle();
+            addTurtle(3, m_baseFoodCost);
             m_money -= m_turtles[0]->getAnimalCost();
             std::cout << "You bought a Turtle!\n";
             break;
@@ -752,8 +760,6 @@ std::ostream& operator<<(std::ostream& out, const Zoo& zoo)
             std::endl;
     out << "\nMoney: " << std::setprecision(2) << std::fixed << zoo.m_money << 
             std::endl;
-    out << "\nBoom: " << std::setprecision(2) << std::fixed << 
-            zoo.m_boomProfit << std::endl;
 
     if(zoo.m_isBankrupt)
     {

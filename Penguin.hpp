@@ -18,9 +18,9 @@ class Penguin : public Animal
 {
 public:
    Penguin(int age = 1, 
+         double baseFoodCost = 10, 
          int numBabies = 5, 
          double animalCost = 1000, 
-         double baseFoodCost = 10, 
          double payOff = 0.10); 
 
    virtual ~Penguin();

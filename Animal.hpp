@@ -36,9 +36,9 @@ public:
  *  arguments are omitted.
 *******************************************************************************/
    Animal(int age = 1, 
+          double baseFoodCost = 10, 
           int numBabies = 0, 
           double animalCost = 0, 
-          double baseFoodCost = 1000, 
           double payOff = 0);
     
 

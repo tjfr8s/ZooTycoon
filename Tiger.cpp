@@ -1,11 +1,11 @@
 #include "Tiger.hpp"
 
 Tiger::Tiger(int age,
+             double baseFoodCost,
              int numBabies,
              double animalCost,
-             double baseFoodCost,
              double payOff)
-    : Animal(age, numBabies, animalCost, baseFoodCost, payOff)
+    : Animal(age, baseFoodCost, numBabies, animalCost, payOff)
 {}
 
 Tiger::~Tiger()

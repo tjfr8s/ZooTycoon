@@ -24,9 +24,9 @@
  *  arguments are omitted.
 *******************************************************************************/
 Animal::Animal(int age, 
+               double baseFoodCost, 
                int numBabies, 
                double animalCost, 
-               double baseFoodCost, 
                double payOff)
     : m_age(age),
       m_numBabies(numBabies),

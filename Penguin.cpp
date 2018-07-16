@@ -1,11 +1,11 @@
 #include "Penguin.hpp"
 
 Penguin::Penguin(int age,
+             double baseFoodCost,
              int numBabies,
              double animalCost,
-             double baseFoodCost,
              double payOff)
-    : Animal(age, numBabies, animalCost, baseFoodCost, payOff)
+    : Animal(age, baseFoodCost, numBabies, animalCost,  payOff)
 {}
 
 Penguin::~Penguin()

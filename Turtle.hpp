@@ -18,9 +18,9 @@ class Turtle : public Animal
 {
 public:
    Turtle(int age = 1, 
+         double baseFoodCost = 10, 
          int numBabies = 10, 
          double animalCost = 100, 
-         double baseFoodCost = 10, 
          double payOff = 0.05); 
 
    virtual ~Turtle();

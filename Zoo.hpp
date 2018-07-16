@@ -27,6 +27,7 @@ class Zoo
 {
 private:
     double m_money;
+    const int m_baseFoodCost;
     Tiger** m_tigers;
     Penguin** m_penguins;
     Turtle** m_turtles;
@@ -60,7 +61,8 @@ public:
  *    - m_isBankrupt is initialized to false
  *    - m_boonProfit is initialized to 0
  *******************************************************************************/
-    Zoo(double m_money = 100000,
+    Zoo(double money = 100000,
+        int baseFoodCost = 1000,
         int maxTigers = 10,
         int maxPenguins = 10,
         int maxTurtles = 10);
@@ -105,7 +107,7 @@ public:
  * - Adds a new tiger to the Tiger** array
  * - Resizes the array if there isn't space for the tiger
 *******************************************************************************/
-    void addTiger(int age = 1);
+    void addTiger(int age, int baseFoodCost);
 
 
 /*******************************************************************************
@@ -133,7 +135,7 @@ public:
  * - Adds a new penguin to the Penguin** array
  * - Resizes the array if there isn't space for the penguin
 *******************************************************************************/
-    void addPenguin(int age = 1);
+    void addPenguin(int age, int baseFoodCost);
 
 
 /*******************************************************************************
@@ -161,7 +163,7 @@ public:
  * - Adds a new turtle to the Turtle** array
  * - Resizes the array if there isn't space for the turtle
 *******************************************************************************/
-    void addTurtle(int age = 1);
+    void addTurtle(int age, int baseFoodCost);
 
 
 /*******************************************************************************

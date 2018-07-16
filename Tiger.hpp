@@ -18,9 +18,9 @@ class Tiger : public Animal
 {
 public:
    Tiger(int age = 1, 
+         double baseFoodCost = 1000, 
          int numBabies = 1, 
          double animalCost = 10000, 
-         double baseFoodCost = 1000, 
          double payOff = 0.20); 
 
    virtual ~Tiger();
