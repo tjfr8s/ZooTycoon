@@ -3,9 +3,10 @@
 
 int main()
 {
+    int startingMoney = 100000;
+    int baseFoodCost = 1000;
     srand(time(NULL));
-    Zoo zoo;
-    std::cout << zoo;
+    Zoo zoo(startingMoney, baseFoodCost);
     
 /*
     // Test addTiger() and resizeTiger()
@@ -84,11 +85,13 @@ int main()
     */
     Zoo zoo2;
     zoo2.initZoo();
+    std::cout << "\n**************\n" << zoo2 << "\n**************\n";
     do
     {
         zoo2.simulateDay();
         zoo2.printAges();
         std::cout << "\n**************\n" << zoo2 << "\n**************\n";
+        zoo2.printAges();
     }while(zoo2.getMoney() > 0 && zoo2.continuePlaying());
 
     return 0;
