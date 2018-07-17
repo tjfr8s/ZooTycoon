@@ -376,8 +376,6 @@ void Zoo::printAges()
     {
         std::cout << "Tiger " << i+1 << " age: " << m_tigers[i]->getAge() << 
                       std::endl;
-        std::cout << "Tiger " << i+1 << " bfc:" << m_tigers[i]->getFoodCost() << 
-                      std::endl;
     }
 
     std::cout << "\n";
@@ -385,16 +383,12 @@ void Zoo::printAges()
     {
         std::cout << "Penguin " << i+1 << " age: " << m_penguins[i]->getAge() << 
                       std::endl;
-        std::cout << "Penguin " << i+1 << " bfc:" << m_penguins[i]->getFoodCost() << 
-                      std::endl;
     }
 
     std::cout << "\n";
     for(int i = 0; i < m_numTurtles; i++)
     {
         std::cout << "Turtle " << i+1 << " age: " << m_turtles[i]->getAge() << 
-                      std::endl;
-        std::cout << "Turtle " << i+1 << " bfc:" << m_turtles[i]->getFoodCost() << 
                       std::endl;
     }
     std::cout << "\n";
@@ -595,6 +589,10 @@ void Zoo::baby()
     {
         std::cout << "\nThere were no adult animals. \n" << std::endl;
     }
+    else
+    {
+        std::cout << "\nA baby is born!\n" << std::endl;
+    }
 }
 
 
@@ -619,9 +617,9 @@ void Zoo::randomEvent()
         case 2:
             std::cout << "A boom in sales!" << std::endl;
             boom();
+            std::cout << "Boom profit: " << m_boomProfit << std::endl;
             break;
         case 3:
-            std::cout << "A baby is born!" << std::endl;
             baby();
             break;
         case 4:
@@ -663,6 +661,7 @@ void Zoo::calculateProfit()
                          turtleProfit + m_boomProfit;
 
     m_money += totalProfit;
+    std::cout << "\nTotal Profit: " << totalProfit << std::endl;
     m_boomProfit = 0;
 }
 
@@ -712,6 +711,10 @@ void Zoo::buyAdult()
 }
 
 
+/*******************************************************************************
+ * Description: Returns true if the user chooses to keep playing (1) and false
+ * if they choose to quit (2).
+*******************************************************************************/
 bool Zoo::continuePlaying()
 {
     std::cout << "Enter 1 to continue and 2 to quit." << std::endl;
@@ -727,6 +730,14 @@ bool Zoo::continuePlaying()
 }
 
 
+/*******************************************************************************
+ * Description: Performs the following actions on the zoo:
+ *  - ages animals by 1 day
+ *  - pays for food
+ *  - causes random event to happen.
+ *  - calculates the zoo's profit
+ *  - offers the user to purchase an adult.
+*******************************************************************************/ 
 void Zoo::simulateDay()
 {
     ageAnimals();

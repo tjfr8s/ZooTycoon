@@ -294,8 +294,25 @@ public:
 *******************************************************************************/
     void buyAdult();
 
+
+/*******************************************************************************
+ * Description: Returns true if the user chooses to keep playing (1) and false
+ * if they choose to quit (2).
+*******************************************************************************/
     bool continuePlaying();
+
+
+/*******************************************************************************
+ * Description: Performs the following actions on the zoo:
+ *  - ages animals by 1 day
+ *  - pays for food
+ *  - causes random event to happen.
+ *  - calculates the zoo's profit
+ *  - offers the user to purchase an adult.
+*******************************************************************************/ 
     void simulateDay();
+
+
     double getMoney() {return m_money;}
     friend std::ostream& operator<<(std::ostream& out, const Zoo& zoo);
 
