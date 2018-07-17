@@ -17,43 +17,45 @@ INCS = $(shell find . -maxdepth 1 -type f -name \*.$(INCEXT))
 ZooTycoon: $(OBJS)
 	$(CXX) $^ -o ZooTycoon
 
-AnimalTest: Animal.o AnimalTest.o
-	$(CXX) $^ -o AnimalTest
-
-TigerTest: Animal.o Tiger.o TigerTest.o
-	$(CXX) $^ -o TigerTest
-
-PenguinTest: Animal.o Penguin.o PenguinTest.o
-	$(CXX) $^ -o PenguinTest
-
-TurtleTest: Animal.o Turtle.o TurtleTest.o
-	$(CXX) $^ -o TurtleTest
-
-ZooTest: Animal.o Tiger.o Penguin.o Turtle.o Zoo.o ZooTest.o IntegerValidation.o
-	$(CXX) $^ -o ZooTest
+#AnimalTest: Animal.o AnimalTest.o
+#	$(CXX) $^ -o AnimalTest
+#
+#TigerTest: Animal.o Tiger.o TigerTest.o
+#	$(CXX) $^ -o TigerTest
+#
+#PenguinTest: Animal.o Penguin.o PenguinTest.o
+#	$(CXX) $^ -o PenguinTest
+#
+#TurtleTest: Animal.o Turtle.o TurtleTest.o
+#	$(CXX) $^ -o TurtleTest
+#
+#ZooTest: Animal.o Tiger.o Penguin.o Turtle.o Zoo.o ZooTest.o IntegerValidation.o
+#	$(CXX) $^ -o ZooTest
 
 
 $(OBJS): $(SRCS) $(INCS)
 	$(CXX) $(CXXFLAGS) -c $(@:.o=.$(SRCEXT))
 
-AnimalTest.o: ./test/AnimalTest.cpp
-	$(CXX) $(CXXFLAGS) -c ./test/AnimalTest.cpp
+#AnimalTest.o: ./test/AnimalTest.cpp
+#	$(CXX) $(CXXFLAGS) -c ./test/AnimalTest.cpp
+#
+#TigerTest.o: ./test/TigerTest.cpp
+#	$(CXX) $(CXXFLAGS) -c ./test/TigerTest.cpp
 
-TigerTest.o: ./test/TigerTest.cpp
-	$(CXX) $(CXXFLAGS) -c ./test/TigerTest.cpp
-
-PenguinTest.o: ./test/PenguinTest.cpp
-	$(CXX) $(CXXFLAGS) -c ./test/PenguinTest.cpp
+#PenguinTest.o: ./test/PenguinTest.cpp
+#	$(CXX) $(CXXFLAGS) -c ./test/PenguinTest.cpp
 	
-TurtleTest.o: ./test/TurtleTest.cpp
-	$(CXX) $(CXXFLAGS) -c ./test/TurtleTest.cpp
+#TurtleTest.o: ./test/TurtleTest.cpp
+#	$(CXX) $(CXXFLAGS) -c ./test/TurtleTest.cpp
 
-ZooTest.o: ./test/ZooTest.cpp
-	$(CXX) $(CXXFLAGS) -c ./test/ZooTest.cpp
+#ZooTest.o: ./test/ZooTest.cpp
+#	$(CXX) $(CXXFLAGS) -c ./test/ZooTest.cpp
 
 
 .PHONY: clean
 clean:
-	rm *.o ZooTycoon AnimalTest TigerTest PenguinTest TurtleTest ZooTest
+	rm *.o ZooTycoon 
+
+#	AnimalTest TigerTest PenguinTest TurtleTest ZooTest
 	
 
